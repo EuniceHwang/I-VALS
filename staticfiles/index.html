@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>I-VALS</title>
+    <link rel="icon" href="data:," />        
+</head>
+<body> 
+    <section id="main_contents">
+        <div class="wrapper">
+            <div class="title">
+                <h3 class="main_title">I-VALS</h3>
+                <h3 class="sub_title">나의 인터넷 라이프스타일은?</h3>                
+            </div>
+            <div class="intro">
+            <div class="type">
+                <ul class="type_list">
+                    <li>정보재미형</li>
+                    <li>쇼핑만족형</li>
+                    <li>사교지향형</li>
+                    <li>실속추구형</li>
+                    <li>현실회피형</li>
+                </ul>
+            </div>
+        </div>
+            <div class="explain">
+                <p>
+                    스탠포드 연구소에서 만든 Internet VALS를 통해<br><br>
+                    나의 인터넷 라이프스타일을 알아보고<br><br>
+                    나에게 맞는 인터넷 플랫폼을 추천해줍니다.<br><br>
+                </p>
+            </div>
+            <div class="buttons">
+                <a href="/form/">
+                    <button class="start" type="button">시작하기</button>
+                </a>
+            </div>
+            <div class="result_data">
+                <div class="data_wrap">
+                    <ul>
+                        {% for type in types %}
+                            <li>{{ type.name }} : {{ type.count }}명</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
