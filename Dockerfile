@@ -31,6 +31,6 @@ RUN pip3 install -r /config/requirements.txt
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./ivals/settings.py /app/ivals/settings.py
+COPY /settings.py /app/ivals/settings.py
 
 CMD python3 manage.py collectstatic --no-input && python3 manage.py makemigrations && python3 manage.py migrate && gunicorn I-VALS.wsgi:application -b 0:80
